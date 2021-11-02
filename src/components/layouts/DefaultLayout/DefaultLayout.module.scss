@@ -1,0 +1,23 @@
+@import "styles/tools";
+
+.root {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: $screen-desktop-max-width;
+  @include mix-break-desktop {
+    flex-direction: row;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  @include mix-break-desktop() {
+    margin-left: $gap-unit;
+    margin-right: $gap-unit;
+  }
+}

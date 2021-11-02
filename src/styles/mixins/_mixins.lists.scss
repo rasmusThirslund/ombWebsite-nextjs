@@ -1,0 +1,12 @@
+// CLEAN LIST
+// apply to <ul>
+// Clear list spacings, remove disc
+@mixin mix-list-clean() {
+  list-style-type: none;
+
+  &,
+  li {
+    padding-left: 0;
+    margin-left: 0;
+  }
+}
