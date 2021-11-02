@@ -9,4 +9,3 @@ export * from "./Typography/Typography";
 // export * from "./Icon/Icon";
 export * from "./Image/Image";
 export * from "./RichText/RichText";
-export * from "./DownloadButtons/DownloadButtons";
