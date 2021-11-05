@@ -9,7 +9,7 @@ export const LogoSvg = memo(() => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_329:105)">
+      <g clipPath="url(#clip0_329:105)">
         <path
           d="M4.50793 18C4.50793 24.8571 9.5873 30.5079 16.2222 31.3651V23.3968C16.2222 20.4127 13.8095 18 10.8254 18H4.50793Z"
           fill="#FBFAF6"

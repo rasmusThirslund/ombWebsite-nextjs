@@ -1,4 +1,5 @@
 import { memo } from "react";
+import style from './image.module.scss';
 
 import NextImage, { ImageProps } from "next/image";
 
