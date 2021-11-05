@@ -1,8 +1,6 @@
 import { memo, ReactNode } from "react";
 
-import styles from "./DefaultLayout.module.scss";
-
-import classnames from "classnames";
+import { PageHeader, PageFooter } from "@app/components/organisms";
 
 interface DefaultLayoutProps {
   children: ReactNode;
@@ -10,8 +8,10 @@ interface DefaultLayoutProps {
 
 const DefaultLayout = memo(({ children }: DefaultLayoutProps) => {
   return (
-    <div className={styles.root}>
-      <main className={styles.content}>{children}</main>
+    <div className="max-w-screen-xxl mx-auto">
+      <PageHeader />
+      <main>{children}</main>
+      <PageFooter />
     </div>
   );
 });

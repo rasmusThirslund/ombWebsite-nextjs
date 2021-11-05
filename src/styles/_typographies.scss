@@ -1,0 +1,50 @@
+@layer utilities {
+  @responsive {
+    .text-h1 {
+      @apply text-72;
+    }
+    .text-h2 {
+      @apply text-62;
+    }
+    .text-h3 {
+      @apply text-56;
+    }
+    .text-h4 {
+      @apply text-40;
+    }
+    .text-h5 {
+      @apply text-24 leading-relaxed;
+    }
+    .text-body-2 {
+      @apply text-body2;
+    }
+    .text-subtitle {
+      @apply text-16 leading-normal text-white text-opacity-50;
+    }
+  }
+}
+@layer utilities {
+  .richtext {
+    h1 {
+      @apply text-h1;
+    }
+    h2 {
+      @apply text-h2;
+    }
+    h3 {
+      @apply text-h3;
+    }
+    h4 {
+      @apply text-h4;
+    }
+    h5 {
+      @apply text-h5;
+    }
+    ul,
+    ol {
+      list-style: revert;
+      padding: revert;
+      margin: revert;
+    }
+  }
+}
