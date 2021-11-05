@@ -1,5 +1,5 @@
 import { HeadMeta } from "@app/components/layouts";
-import { content } from "./content";
+import { content } from "../../constants/contentHtml.constants";
 import cx from "classnames";
 
 interface ContainerProps {
