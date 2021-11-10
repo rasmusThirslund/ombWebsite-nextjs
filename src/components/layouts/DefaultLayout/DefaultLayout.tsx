@@ -1,6 +1,6 @@
 import { memo, ReactNode } from "react";
 
-import { PageHeader, PageFooter } from "@app/components/organisms";
+import { PageHeader, PageFooter, Cursor } from "@app/components/organisms";
 
 interface DefaultLayoutProps {
   children: ReactNode;
@@ -12,6 +12,7 @@ const DefaultLayout = memo(({ children }: DefaultLayoutProps) => {
       <PageHeader />
       <main>{children}</main>
       <PageFooter />
+      <Cursor />
     </div>
   );
 });
