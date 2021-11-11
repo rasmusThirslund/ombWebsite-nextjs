@@ -3,13 +3,15 @@ import { memo } from "react";
 
 const PageFooter = memo(() => {
   return (
-    <SectionWrapper marginBottom="none" size="large">
-      <footer className="flex flex-col lg:flex-row lg:justify-between pb-6">
-        <p className="text-h4 md:text-h3 xl:text-h2 xxl:text-h1 lg:max-w-w788 mb-8">
-          This is the part where you fall in love with what we do and decides to
-          contact us
-        </p>
-        <div className="lg:min-w-w208 mr-0 ml-auto">
+    <>
+      <footer className="grid mt-28 pb-28">
+        <div className="col-span-12 lg:col-span-8 xl:col-start-2 xl:col-span-7 mb-16">
+          <h2 className="font-medium text-h4 md:text-h1 max-w-5xl -mt-2">
+            This is the part where you fall in love with what we do and decides to
+            contact us
+          </h2>
+        </div>
+        <div className="col-span-12 lg:col-start-10 lg:col-span-2">
           <p className="mb-8">
             <a href="mailto:hello@ombrello.io">hello@ombrello.io</a>
             <br />
@@ -46,8 +48,12 @@ const PageFooter = memo(() => {
           </ul>
         </div>
       </footer>
-    </SectionWrapper>
+      <div className="w-full h-2 gradiant"></div>
+    </>
+
   );
 });
 
 export { PageFooter };
+
+

@@ -3,9 +3,24 @@
 @tailwind utilities;
 @import "fonts";
 @import "typographies";
+@import "grid";
+
+$minFont: 16;
+$maxFont: 19;
+$from: 1680;
+$to: 2560;
+
+html {
+  @media screen and (min-width:#{$from}px) {
+    font-size: calc(
+      #{$minFont}px + (#{$maxFont} - #{$minFont}) *
+        ((100vw - #{$from}px) / (#{$to} - #{$from}))
+    );
+  }
+}
 
 body {
-  @apply bg-black text-white font-sans leading-normal text-16 antialiased;
+  @apply bg-black text-white font-sans leading-normal antialiased;
 }
 
 b,
@@ -15,4 +30,13 @@ strong {
 em,
 i {
   font-style: italic;
+}
+
+
+main {
+  min-height: 80vh;
+}
+
+.gradiant {
+  background: radial-gradient(100% 58037.2% at 0% -165.28%, #FF008A 0%, #FF9900 100%);
 }

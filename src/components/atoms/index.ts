@@ -4,8 +4,9 @@
 // export * from "./Link/Link";
 // export * from "./NewsCard/NewsCard";
 // export * from "./RichText/RichText";
-export * from "./Typography/Typography";
+// export * from "./Typography/Typography";
 // export * from "./Meta/Meta";
 // export * from "./Icon/Icon";
 export * from "./Image/Image";
-export * from "./RichText/RichText";
+// export * from "./RichText/RichText";
+export * from "./Debug/Debug";

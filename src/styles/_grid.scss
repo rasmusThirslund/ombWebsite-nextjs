@@ -1,0 +1,152 @@
+@use "sass:math";
+
+@function rem($size) {
+  @return math.div($size, 16px) * 1rem;
+}
+
+
+$settings: (
+  root: (
+    cols: 4,
+    maxWidth: '100%',
+    offsetleft: rem(20px),
+    offsetright: rem(20px),
+    gutter: rem(16px),
+  ),
+  md: (
+    cols: 12,
+    maxWidth: '100%',
+    offsetleft: rem(36px),
+    offsetright: rem(36px),
+    gutter: rem(24px),
+  ),
+);
+
+:root {
+  --color: rgba(255, 0, 0, 0.125);
+}
+
+@each $breakpoint, $setting in $settings {
+  :root {
+    @if ($breakpoint == 'root') {
+      --columns: #{map-get($setting, cols)};
+      --gutter: #{map-get($setting, gutter)};
+      --offsetleft: #{map-get($setting, offsetleft)};
+      --offsetright: #{map-get($setting, offsetright)};
+      --max_width: calc(
+        #{map-get($setting, maxWidth)} - #{map-get($setting, offset)} * 2
+      );
+    } @else {
+      @screen #{$breakpoint} {
+        --columns: #{map-get($setting, cols)};
+        --gutter: #{map-get($setting, gutter)};
+        --offsetleft: #{map-get($setting, offsetleft)};
+        --offsetright: #{map-get($setting, offsetright)};
+        --max_width: calc(
+          #{map-get($setting, maxWidth)} - #{map-get($setting, offset)} * 2
+        );
+      }
+    }
+  }
+}
+
+.grid {
+  @apply grid-cols-12;
+  @each $breakpoint, $setting in $settings {
+    @if ($breakpoint == 'root') {
+      @apply 
+        pl-[#{map-get($setting, offsetleft)}]
+        pr-[#{map-get($setting, offsetright)}]
+        gap-x-[#{map-get($setting, gutter)}];
+      
+    } @else {
+      @screen #{$breakpoint} {
+        @apply 
+        pl-[#{map-get($setting, offsetleft)}]
+        pr-[#{map-get($setting, offsetright)}]
+        gap-x-[#{map-get($setting, gutter)}];
+      }
+    }
+
+  }
+  
+  > .grid {
+    padding-left:0;
+    padding-right:0;
+  }
+  
+}
+
+
+.debug {
+  &:before {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px 15px;
+    line-height: 1;
+    background: orange;
+    z-index: 9999;
+    font-size: rem(10px);
+    cursor: pointer;
+
+    content: 'root';
+
+    @screen sm {
+      content: 'sm';
+    }
+
+    @screen md {
+      content: 'md';
+    }
+
+    @screen lg {
+      content: 'lg';
+    }
+
+    @screen xl {
+      content: 'xl';
+    }
+
+    @screen xxl {
+      content: 'xxl';
+    }
+
+    @screen display {
+      content: 'Display';
+    }
+  }
+
+  /* Helper variables */
+  --repeating-width: calc(100% / var(--columns));
+  --column-width: calc((100% / var(--columns)) - var(--gutter));
+  --background-width: calc(100% + var(--gutter));
+  --background-columns: repeating-linear-gradient(
+    to right,
+    var(--color),
+    var(--color) var(--column-width),
+    transparent var(--column-width),
+    transparent var(--repeating-width)
+  );
+
+  &.grid {
+    &:after {
+      position: fixed;
+      top: 0;
+      left: var(--offsetleft);
+      right: var(--offsetright);
+      // margin: auto;
+      width: calc(100% - var(--offsetleft) - var(--offsetright));
+
+      @screen lg {
+        max-width: calc(var(--max_width) - var(--offsetright) + var(--gutter));
+      }
+      height: 100%;
+      z-index: 9999;
+      content: '';
+      background-image: var(--background-columns);
+      background-size: var(--background-width) 100%;
+      pointer-events: none;
+    }
+  }
+}

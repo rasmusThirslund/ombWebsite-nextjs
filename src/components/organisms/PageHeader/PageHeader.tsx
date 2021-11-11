@@ -4,8 +4,8 @@ import { memo } from "react";
 
 const PageHeader = memo(() => {
   return (
-    <SectionWrapper marginBottom="none">
-      <header className="border-b-2 border-white border-opacity-50 pt-6 pb-4 flex align-center justify-between">
+    <header className="grid">
+      <div className="col-span-12 py-5 flex align-center justify-between">
         <LogoType />
         <div className="flex justify-between">
           <a href="tel:+45 1234567" className="mr-4">
@@ -13,8 +13,9 @@ const PageHeader = memo(() => {
           </a>
           <button>ContactButton</button>
         </div>
-      </header>
-    </SectionWrapper>
+      </div>
+      <div className="col-span-12 border-b-2 border-white border-opacity-50"></div>
+    </header>
   );
 });
 

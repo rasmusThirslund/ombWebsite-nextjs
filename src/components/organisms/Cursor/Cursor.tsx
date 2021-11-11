@@ -57,7 +57,9 @@ const Cursor: FC = () => {
     },[])
 
     return (
-        <div ref={cursorElm} className={
+        <div ref={cursorElm} 
+        style={{mixBlendMode: 'difference'}}
+        className={
             cx("fixed -top-3 -left-3 z-50 w-6 h-6 pointer-events-none transition-opacity duration-500 ease-out",
                 {'opacity-100': hasMoved},
                 {'opacity-0': !hasMoved},

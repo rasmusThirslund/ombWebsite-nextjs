@@ -1,6 +1,7 @@
 import { memo, ReactNode } from "react";
 
 import { PageHeader, PageFooter, Cursor } from "@app/components/organisms";
+import { Debug } from '@app/components/atoms';
 
 interface DefaultLayoutProps {
   children: ReactNode;
@@ -8,12 +9,13 @@ interface DefaultLayoutProps {
 
 const DefaultLayout = memo(({ children }: DefaultLayoutProps) => {
   return (
-    <div className="max-w-screen-xxl mx-auto">
+    <>
       <PageHeader />
       <main>{children}</main>
       <PageFooter />
       <Cursor />
-    </div>
+      <Debug />
+    </>
   );
 });
 

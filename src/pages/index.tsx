@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <HeadMeta title="Home" />
-      <SectionWrapper size="full" noPadding>
+      {/* <SectionWrapper size="full" noPadding>
         <p className="text-h1">Full no padding</p>
       </SectionWrapper>
       <SectionWrapper size="xxlarge">xxlarge</SectionWrapper>
@@ -16,7 +16,7 @@ export default function Home() {
       <SectionWrapper size="large">large</SectionWrapper>
       <SectionWrapper size="medium">medium</SectionWrapper>
       <SectionWrapper size="small">small</SectionWrapper>
-      <SectionWrapper size="xsmall">x small</SectionWrapper>
+      <SectionWrapper size="xsmall">x small</SectionWrapper> */}
     </>
   );
 }
